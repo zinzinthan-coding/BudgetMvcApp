@@ -22,6 +22,10 @@ namespace BudgetMvcApp.Controllers
         {
             return View();
         }
+        public IActionResult CreateBudget()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

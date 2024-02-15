@@ -280,7 +280,7 @@ p {
 main {
     max-width: 1500px;
     width: 100%;
-    /*padding: var(--space-md) var(--space-md) var(--space-xl);*/
+    padding: var(--space-md) var(--space-md) var(--space-xl);
     margin-inline: auto;
     display: -ms-grid;
     display: grid;
@@ -376,19 +376,19 @@ select {
     gap: var(--space-lg);
 }
 
-    .intro div {
-        display: -ms-grid;
-        display: grid;
-        gap: var(--space-sm);
-        max-width: var(--content-sm);
-    }
+.intro div {
+    display: -ms-grid;
+    display: grid;
+    gap: var(--space-sm);
+    max-width: var(--content-sm);
+}
 
-    .intro form {
-        display: -ms-grid;
-        display: grid;
-        gap: var(--space-sm);
-        max-width: 25ch;
-    }
+.intro form {
+    display: -ms-grid;
+    display: grid;
+    gap: var(--space-sm);
+    max-width: 25ch;
+}
 
 /* dashboard */
 .dashboard {
@@ -420,14 +420,14 @@ select {
     border-bottom: 0.15em solid hsl(var(--bkg));
 }
 
-    .form-wrapper::before {
-        content: "";
-        position: absolute;
-        inset: 0.55rem;
-        border: 2px dashed hsl(var(--text));
-        border-radius: calc(var(--round-lg) * 0.6);
-        z-index: -1;
-    }
+.form-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0.55rem;
+    border: 2px dashed hsl(var(--text));
+    border-radius: calc(var(--round-lg) * 0.6);
+    z-index: -1;
+}
 
 .expense-inputs {
     display: -webkit-box;
@@ -472,15 +472,15 @@ select {
     color: hsl(var(--backdrop));
 }
 
-    .budget > .flex-sm {
-        padding-top: var(--space-sm);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
+.budget > .flex-sm {
+    padding-top: var(--space-sm);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
 
 .progress-text {
     display: -webkit-box;
@@ -495,13 +495,13 @@ select {
     gap: var(--space-lg);
 }
 
-    .progress-text :nth-child(2) {
-        text-align: right;
-    }
+.progress-text :nth-child(2) {
+    text-align: right;
+}
 
-    .progress-text:nth-of-type(2) :nth-child(2) {
-        color: hsl(var(--muted));
-    }
+.progress-text:nth-of-type(2) :nth-child(2) {
+    color: hsl(var(--muted));
+}
 
 progress {
     -webkit-appearance: none;
@@ -517,20 +517,20 @@ progress {
     transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-    progress[value]::-webkit-progress-bar {
-        background-color: hsl(var(--light));
-    }
+progress[value]::-webkit-progress-bar {
+    background-color: hsl(var(--light));
+}
 
-    progress[value]::-moz-progress-bar {
-        -moz-transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
-        transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
-        background-color: hsl(var(--backdrop));
-    }
+progress[value]::-moz-progress-bar {
+    -moz-transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: hsl(var(--backdrop));
+}
 
-    progress[value]::-webkit-progress-value {
-        background-color: hsl(var(--backdrop));
-        -webkit-transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+progress[value]::-webkit-progress-value {
+    background-color: hsl(var(--backdrop));
+    -webkit-transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
 /* error pages */
 .error {
