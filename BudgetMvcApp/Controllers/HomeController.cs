@@ -26,6 +26,14 @@ namespace BudgetMvcApp.Controllers
         {
             return View();
         }
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+        public IActionResult BudgetDetail()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
