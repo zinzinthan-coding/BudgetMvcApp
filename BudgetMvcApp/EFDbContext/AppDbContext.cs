@@ -9,7 +9,7 @@ namespace BudgetMvcApp.EFDbContext
         {
         }
 
-        public DbSet<UserDataModel> User { get; set; }
+        public DbSet<UserDataModel> Users { get; set; }
         public DbSet<BudgetDataModel> Budget { get; set; }
         public DbSet<BudgetExpenseDataModel> Expense { get; set; }
     }

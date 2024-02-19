@@ -1,6 +1,7 @@
 ﻿using BudgetMvcApp.EFDbContext;
 using BudgetMvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace BudgetMvcApp.Controllers
@@ -19,6 +20,22 @@ namespace BudgetMvcApp.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(UserDataModel reqModel)
+        {
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.UserName == reqModel.UserName && u.PhoneNumber == reqModel.PhoneNumber);
+            if (user is null)
+            {
+                await _dbcontext.Users.AddAsync(reqModel);
+                int result = await _dbcontext.SaveChangesAsync();
+                string message = result > 0 ? "Success" : "Failed";
+
+                MessageModel model = new MessageModel(result > 0, message);
+                return Json(model);
+            }
+            return Redirect("/home");
         }
 
         public IActionResult Login()
