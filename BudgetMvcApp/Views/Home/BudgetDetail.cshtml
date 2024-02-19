@@ -1,5 +1,5 @@
 ﻿
-<div class="grid-lg" >
+<div class="grid-lg">
     <h1 class="h2">
         <span class="accent">Salary</span>
         Overview
@@ -50,5 +50,54 @@
             </table>
         </div>
         @* End *@
+
+        <ul class="mud-pagination mud-pagination-text mud-pagination-medium mt-4">
+            <li class="mud-pagination-item">
+                <button aria-label="First page" type="button" disabled="" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon" _bl_2="">
+                    <span class="mud-icon-button-label">
+                        |&lt;
+                        @* <svg class="mud-icon-root mud-svg-icon mud-icon-size-medium" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
+                        <path d="M24 24H0V0h24v24z" fill="none"></path>
+                        </svg> *@
+                    </span>
+                </button>
+            </li>
+            <li class="mud-pagination-item">
+                <button aria-label="Previous page" type="button" disabled="" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon" _bl_3="">
+                    <span class="mud-icon-button-label"> &lt;
+                        @* <svg class="mud-icon-root mud-svg-icon mud-icon-size-medium" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg> *@
+                    </span>
+                </button>
+            </li>
+            <li class="mud-pagination-item mud-pagination-item-selected">
+                <button aria-current="page" aria-label="Current page 1" type="button" class="mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium" _bl_4="">
+                    <span class="mud-button-label">1</span>
+                </button>
+            </li>
+            <li class="mud-pagination-item">
+                <button aria-label="Next page" type="button" disabled="" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon" _bl_5="">
+                    <span class="mud-icon-button-label"> &gt;
+                       @*  <svg class="mud-icon-root mud-svg-icon mud-icon-size-medium" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                        </svg> *@
+                    </span>
+                </button>
+            </li>
+            <li class="mud-pagination-item">
+                <button aria-label="Last page" type="button" disabled="" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon" _bl_6="">
+                    <span class="mud-icon-button-label"> &gt;|
+                        @* <svg class="mud-icon-root mud-svg-icon mud-icon-size-medium" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M0 0h24v24H0V0z" fill="none"></path>
+                            <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path>
+                        </svg> *@
+                    </span>
+                </button>
+            </li>
+        </ul>
     </div>
 </div>

@@ -304,18 +304,18 @@ nav {
     margin-inline: auto;
 }
 
-    nav a {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        gap: var(--space-xs);
-        padding: var(--space-xs);
-        text-decoration: none;
-        font-weight: bold;
-    }
+nav a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs);
+    text-decoration: none;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 525px) {
     nav a span {
@@ -620,3 +620,31 @@ table a {
 .blazor-error-boundary::after {
     content: "An error has occurred."
 }
+
+/* pagination */
+
+.mt-4 {
+    margin-top: 16px !important;
+}
+
+.mud-pagination {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    display: block;
+    /*list-style-type: disc;*/
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+

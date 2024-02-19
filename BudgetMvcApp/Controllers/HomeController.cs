@@ -1,4 +1,5 @@
-﻿using BudgetMvcApp.Models;
+﻿using BudgetMvcApp.EFDbContext;
+using BudgetMvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,10 +7,12 @@ namespace BudgetMvcApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AppDbContext _dbcontext;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AppDbContext dbcontext, ILogger<HomeController> logger)
         {
+            _dbcontext = dbcontext;
             _logger = logger;
         }
 
