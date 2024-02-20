@@ -29,18 +29,30 @@ namespace BudgetMvcApp.Controllers
             {
                 await _dbcontext.Users.AddAsync(reqModel);
                 int result = await _dbcontext.SaveChangesAsync();
-                string message = result > 0 ? "Success" : "Failed";
+                string message = result > 0 ? "Create Successful" : "Create Failed";
 
                 MessageModel model = new MessageModel(result > 0, message);
                 return Json(model);
             }
-            return Redirect("/home");
+            return Json( new MessageModel(false, "This user is already exist"));
         }
 
         public IActionResult Login()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(UserDataModel reqModel)
+        {
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.UserName == reqModel.UserName && u.PhoneNumber == reqModel.PhoneNumber);
+            if (user is null)
+            {
+                return Json(new MessageModel(false, "This user doesn't exist"));
+            }
+            return Json(new MessageModel(true, "Login Successful"));
+        }
+
         public IActionResult CreateBudget()
         {
             return View();

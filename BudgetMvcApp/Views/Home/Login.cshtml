@@ -8,16 +8,44 @@
                     <form>
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" name="UserName" id="name" placeholder="Enter your name">
+                            <input type="text" class="form-control" id="txtName" placeholder="Enter your name">
                         </div>
                         <div class="mb-3">
                             <label for="phoneNumber" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" name="PhoneNumber" id="phoneNumber" placeholder="Enter your phone number">
+                            <input type="tel" class="form-control" id="txtPhNo" placeholder="Enter your phone number">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <button type="button" id="btnLogin" class="btn btn-primary btn-block">Login</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $('#btnLogin').click(function (e) {
+            var _reqModel = {
+                UserName: $('#txtName').val(),
+                PhoneNumber: $('#txtPhNo').val()
+            }
+
+            $.ajax({
+                url : '/home/login',
+                type : 'POST',
+                data : {
+                    reqModel : _reqModel
+                },
+                success: function (data) {
+                    if (data != null) {
+                        showMessage(data, '/home/dashboard');
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log({ request, status, error });
+                }
+            });
+        })
+        
+    </script>
+}

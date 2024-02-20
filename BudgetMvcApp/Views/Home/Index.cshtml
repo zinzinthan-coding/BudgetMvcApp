@@ -36,9 +36,8 @@
                     reqModel: _reqModel
                 },
                 success: function (data) {
-                    console.log(data);
                     if (data != null) {
-                        location.href = "/home/createbudget";
+                        showMessage(data, "/home/createbudget");
                     }
                 },
                 error: function (request, status, error) {
