@@ -49,3 +49,13 @@ function showMessage(data, url) {
         errorMessage(data.message);
     }
 }
+
+function notiMessage(data, url) {
+    if (data.isSuccess) {
+        Notiflix.Notify.success(data.message);
+        location.href = url;
+    }
+    else {
+        Notiflix.Notify.failure(data.message);
+    }
+}

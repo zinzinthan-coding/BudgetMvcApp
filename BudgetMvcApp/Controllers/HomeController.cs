@@ -37,10 +37,10 @@ namespace BudgetMvcApp.Controllers
             return Json( new MessageModel(false, "This user is already exist"));
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+        //public IActionResult Login()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public async Task<IActionResult> Login(UserDataModel reqModel)

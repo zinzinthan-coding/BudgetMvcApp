@@ -19,9 +19,66 @@
     </div>
     <img src="assets/illustration.jpg" alt="Person with money" width="600" />
 </div>
+<div class="modal" id="loginModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <h3 class="modal-titl">Login</h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="txtLname" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="txtLphNo" placeholder="Enter your phone number">
+                    </div>
+                    <button type="button" id="btnCancel" class="btn btn-secondary btn-block">Cancel</button>
+                    <button type="button" id="btnLogin" class="btn btn-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section scripts {
     <script>
+        $('#openAccount').click(function () {
+            $('#txtLname').val('');
+            $('#txtLphNo').val('');
+            $('#loginModal').modal('show');
+        })
+
+        $('#btnCancel').click(function () {
+            $('#loginModal').modal('hide');
+        })
+
+        $('#btnLogin').click(function (e) {
+            var _reqModel = {
+                UserName: $('#txtLname').val(),
+                PhoneNumber: $('#txtLphNo').val()
+            }
+
+            $.ajax({
+                url: '/home/login',
+                type: 'POST',
+                data: {
+                    reqModel: _reqModel
+                },
+                success: function (data) {
+                    if (data != null) {
+                        notiMessage(data,'/home/dashboard');
+
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log({ request, status, error });
+                }
+            });
+        })
+
         $('#btnCreateAcc').click(function (e) {
 
             var _reqModel = {
