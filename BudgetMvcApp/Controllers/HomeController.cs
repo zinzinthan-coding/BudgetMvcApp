@@ -31,10 +31,17 @@ namespace BudgetMvcApp.Controllers
                 int result = await _dbcontext.SaveChangesAsync();
                 string message = result > 0 ? "Create Successful" : "Create Failed";
 
-                MessageModel model = new MessageModel(result > 0, message);
+                var userdata = await _dbcontext.Users.FirstOrDefaultAsync(u => u.UserName == reqModel.UserName && u.PhoneNumber == reqModel.PhoneNumber);
+                UserResponseModel model = new UserResponseModel()
+                {
+                    IsSuccess = result > 0,
+                    Message = message,
+                    UserData = userdata
+                };
                 return Json(model);
             }
-            return Json( new MessageModel(false, "This user is already exist"));
+         
+            return Json(new MessageModel(false, "This user is already exist"));
         }
 
         //public IActionResult Login()
@@ -48,14 +55,15 @@ namespace BudgetMvcApp.Controllers
             var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.UserName == reqModel.UserName && u.PhoneNumber == reqModel.PhoneNumber);
             if (user is null)
             {
-                return Json(new MessageModel(false, "This user doesn't exist"));
+                return Json(new MessageModel(false, "This user doesn't exist."));
             }
-            return Json(new MessageModel(true, "Login Successful"));
+            return Json(new MessageModel(true, "Login Successful."));
         }
 
-        public IActionResult CreateBudget()
+        public async Task<IActionResult> CreateBudget(int id)
         {
-            return View();
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            return View(user);
         }
         public IActionResult Dashboard()
         {

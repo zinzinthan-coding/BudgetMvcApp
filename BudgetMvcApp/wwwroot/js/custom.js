@@ -1,3 +1,13 @@
+
+function showMessage(data, url) {
+    if (data.isSuccess) {
+        successMessage(data.message, url);
+    }
+    else {
+        errorMessage(data.message);
+    }
+}
+
 function successMessage(message, url) {
     Swal.fire({
         title: "Success!",
@@ -39,15 +49,6 @@ function errorMessage(message) {
         text: message,
         icon: "error",
     });
-}
-
-function showMessage(data, url) {
-    if (data.isSuccess) {
-        successMessage(data.message, url);
-    }
-    else {
-        errorMessage(data.message);
-    }
 }
 
 function notiMessage(data, url) {

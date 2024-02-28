@@ -15,4 +15,12 @@
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
     }
+
+    public class UserResponseModel
+    {
+        public bool IsSuccess { get; set; }
+        public string Message { get; set; }
+        public UserDataModel UserData { get; set; } 
+        
+    }
 }
