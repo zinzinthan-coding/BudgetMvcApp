@@ -69,7 +69,7 @@
                 },
                 success: function (data) {
                     if (data != null) {
-                        notiMessage(data,'/home/dashboard');
+                        notiMessage(data,'/home/dashboard?id=' + 1);
 
                     }
                 },
@@ -94,7 +94,7 @@
                 },
                 success: function (data) {
                     if (data != null) {
-                        showMessage(data, "/home/createbudget?id=" + 4);
+                        showMessage(data, "/home/createbudget?id=" + data.userData);
                     }
                 },
                 error: function (request, status, error) {

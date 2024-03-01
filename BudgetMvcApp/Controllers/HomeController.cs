@@ -36,7 +36,7 @@ namespace BudgetMvcApp.Controllers
                 {
                     IsSuccess = result > 0,
                     Message = message,
-                    UserData = userdata
+                    UserData = userdata.UserId
                 };
                 return Json(model);
             }
@@ -65,10 +65,29 @@ namespace BudgetMvcApp.Controllers
             var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.UserId == id);
             return View(user);
         }
-        public IActionResult Dashboard()
+
+        public IActionResult Dashboard(int id)
         {
-            return View();
+            var budget = (from b in _dbcontext.Budget
+                         join u in _dbcontext.Users on b.UserId equals u.UserId 
+                         join e in _dbcontext.Expense on b.BudgetId equals e.BudgetId
+                         where u.UserId == id
+                         select new BudgetResponseModel
+                         {
+                             UserId = id,
+                             UserName = u.UserName,
+                             BudgetId = b.BudgetId,
+                             ExpenseId = e.ExpenseId,
+                             BudgetName = b.BudgetName,
+                             Budget = b.Budget,
+                             ExpenseName = e.ExpenseName,
+                             Amount = e.Amount,
+                             ExpenseDateTime = e.ExpenseDateTime
+                         });
+
+            return View(budget);
         }
+
         public IActionResult BudgetDetail()
         {
             return View();
